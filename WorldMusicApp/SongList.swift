@@ -14,6 +14,7 @@ import AVFoundation
 class songList: UITableViewController{
     var idArray: [String] = []
     var previewArray: [String] = []
+    var songsArray: [String] = []
     var cellIndex = 0
     
     override func viewDidLoad() {
@@ -43,10 +44,11 @@ func storeIdNumbers() {
                         }
                         
                        self.tableView.reloadData()
-                      //  print(self.idArray)
+                      // print(self.idArray)
                      //  print(self.idArray.count)
                        // print(counter)
                        self.storePreviewUrl()
+                        self.storeSongs()
                         break
                     }
                 case .Failure(let error):
@@ -72,7 +74,7 @@ func storeIdNumbers() {
                             }
                         }
                     self.tableView.reloadData()
-                   // print(self.previewArray)
+                    print(self.previewArray)
                     break
                     }
                 case .Failure(let error):
@@ -82,6 +84,60 @@ func storeIdNumbers() {
         idCounter += 1
     }
 }
+   func storeSongs(){
+        var idCounter =  0
+        while idCounter < self.idArray.count {
+            let apiToContact = self.idArray[idCounter]
+            Alamofire.request(.GET, apiToContact).validate().responseJSON() { response in
+                switch response.result {
+                    case .Success:
+                        if let value = response.result.value {
+                            let json = JSON(value)
+                            var counter = 0
+                            for(_, _) in json["items"]{
+                                if let songs = json["items"][counter]["name"].string {
+                                    self.songsArray.append(songs)
+                                    counter += 1
+                                }
+                            }
+                            self.tableView.reloadData()
+                             print(self.songsArray)
+                            break
+                    }
+                case .Failure(let error):
+                    print(error)
+                }
+            }
+            idCounter += 1
+    }
+ }
+ /*   func storeSongList(){
+        var idCounter =  0
+        while idCounter < self.idArray.count {
+            let apiToContact = self.idArray[idCounter]
+            Alamofire.request(.GET, apiToContact).validate().responseJSON() { response in
+                switch response.result {
+                case .Success:
+                    if let value = response.result.value {
+                        let json = JSON(value)
+                        var counter = 0
+                        for(_, _) in json["items"]{
+                            if let songs = json["items"][counter]["name"].string {
+                                self.songsArray.append(songs)
+                                counter += 1
+                            }
+                        }
+                        self.tableView.reloadData()
+                       print(self.songsArray)
+                        break
+                    }
+                case .Failure(let error):
+                    print(error)
+                }
+            }
+            idCounter += 1
+        }
+    }*/
 
     func storeArtistNames(){
         
@@ -92,12 +148,14 @@ func storeIdNumbers() {
 
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return previewArray.count
+     // return previewArray.count
+       return songsArray.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! CustomCell
-            cell.textLabel?.text =  previewArray[indexPath.row]
+            //cell.textLabel?.text =  previewArray[indexPath.row]
+            cell.textLabel?.text = songsArray[indexPath.row]
         return cell
     }
     
