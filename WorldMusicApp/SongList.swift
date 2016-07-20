@@ -108,9 +108,7 @@ func storeIdNumbers() {
     
     func playSongs() {
         self.tableView.reloadData()
-        
-        let url = "https://p.scdn.co/mp3-preview/34e429c535a091cb298cd95af11e7503303027e7"
-       // let url = previewArray[0]
+        let url = previewArray[0]
         let playerItem = AVPlayerItem( URL:NSURL( string:url )! )
         player = AVPlayer(playerItem:playerItem)
         player.rate = 1.0;
