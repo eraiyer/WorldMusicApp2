@@ -17,8 +17,11 @@ class songList: UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         storeIdNumbers()
     }
+    
     
 func storeIdNumbers() {
     //getting the ID number of each album of the country and adding it to an array
@@ -39,7 +42,7 @@ func storeIdNumbers() {
                         }
                         
                        self.tableView.reloadData()
-                        print(self.idArray)
+                      //  print(self.idArray)
                        print(self.idArray.count)
                         print(counter)
                        self.storePreviewUrl()
@@ -68,7 +71,7 @@ func storeIdNumbers() {
                             }
                         }
                     self.tableView.reloadData()
-                    print(self.previewArray)
+                   // print(self.previewArray)
                     break
                     }
                 case .Failure(let error):
@@ -79,22 +82,38 @@ func storeIdNumbers() {
     }
 }
 
+    func storeArtistNames(){
+        
+    }
+    func songTitles(){
+        
+    }
 
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return previewArray.count
-        
-       // return 3
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! CustomCell
-        //var arrayCounter = 0
-        
-      //  while(arrayCounter < previewArray.count){
             cell.textLabel?.text =  previewArray[indexPath.row]
-           // arrayCounter += 1
-      //  }
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+        playSongs()
+    }
+    
+    var player = AVPlayer()
+    
+    func playSongs() {
+        self.tableView.reloadData()
+        
+        let url = "https://p.scdn.co/mp3-preview/34e429c535a091cb298cd95af11e7503303027e7"
+       // let url = previewArray[0]
+        let playerItem = AVPlayerItem( URL:NSURL( string:url )! )
+        player = AVPlayer(playerItem:playerItem)
+        player.rate = 1.0;
+        player.play()
     }
 }
