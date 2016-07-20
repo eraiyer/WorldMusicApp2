@@ -14,6 +14,7 @@ import AVFoundation
 class songList: UITableViewController{
     var idArray: [String] = []
     var previewArray: [String] = []
+    var cellIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,8 +44,8 @@ func storeIdNumbers() {
                         
                        self.tableView.reloadData()
                       //  print(self.idArray)
-                       print(self.idArray.count)
-                        print(counter)
+                     //  print(self.idArray.count)
+                       // print(counter)
                        self.storePreviewUrl()
                         break
                     }
@@ -101,6 +102,7 @@ func storeIdNumbers() {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+        cellIndex = indexPath.row
         playSongs()
     }
     
@@ -108,7 +110,7 @@ func storeIdNumbers() {
     
     func playSongs() {
         self.tableView.reloadData()
-        let url = previewArray[0]
+        let url = previewArray[cellIndex]
         let playerItem = AVPlayerItem( URL:NSURL( string:url )! )
         player = AVPlayer(playerItem:playerItem)
         player.rate = 1.0;
