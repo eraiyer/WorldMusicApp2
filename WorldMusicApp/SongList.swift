@@ -28,6 +28,37 @@ class songList: UITableViewController{
     
 func storeIdNumbers() {
     //getting the ID number of each album of the country and adding it to an array
+    if country == "United+States" {
+        let apiToContact = "https://api.spotify.com/v1/search?q=pop+music&type=album"
+        Alamofire.request(.GET, apiToContact).validate().responseJSON() { response in
+            switch response.result {
+            case .Success:
+                if let value = response.result.value {
+                    let json = JSON(value)
+                    var counter = 0
+                    // print(json["albums"])
+                    for(_,_) in json["albums"]{
+                        if let albumID = json["albums"]["items"][counter]["id"].string {
+                            var albumLinkWithID = "https://api.spotify.com/v1/albums/\(albumID)/tracks"
+                            self.idArray.append(albumLinkWithID)
+                            counter+=1
+                        }
+                    }
+                    self.tableView.reloadData()
+                    // print(self.idArray)
+                    //  print(self.idArray.count)
+                    // print(counter)
+                    self.storePreviewUrl()
+                    self.storeSongs()
+                    break
+                }
+            case .Failure(let error):
+                print(error)
+            }
+        }
+    }
+        
+    else {
         let apiToContact = "https://api.spotify.com/v1/search?q=music+from+\(country)&type=album"
         Alamofire.request(.GET, apiToContact).validate().responseJSON() { response in
                 switch response.result {
@@ -54,6 +85,7 @@ func storeIdNumbers() {
                     }
                 case .Failure(let error):
             print(error)
+            }
         }
     }
 }

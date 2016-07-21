@@ -70,9 +70,6 @@ class ViewController: UIViewController {
             }
         }
     }
-/*    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-    }*/
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
        // if segue.identifier == "ButtonThreeSegue" {

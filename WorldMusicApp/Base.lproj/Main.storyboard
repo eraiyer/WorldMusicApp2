@@ -39,13 +39,6 @@
                                     <color key="titleColor" red="0.0" green="0.57349759619999996" blue="0.57349759619999996" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Jcd-ZF-nbj">
-                                <rect key="frame" x="11" y="38" width="578" height="524"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="kWD-ci-NxU" appends="YES" id="Zxr-Mi-Q4b"/>
-                                </connections>
-                            </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbr-uS-Xdo" userLabel="Next">
                                 <rect key="frame" x="348" y="570" width="60" height="30"/>
                                 <constraints>
@@ -55,8 +48,16 @@
                                     <color key="titleColor" red="0.0" green="0.57349759619999996" blue="0.57349759619999996" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Jcd-ZF-nbj">
+                                <rect key="frame" x="11" y="38" width="578" height="524"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="kWD-ci-NxU" appends="YES" id="Zxr-Mi-Q4b"/>
+                                </connections>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Jcd-ZF-nbj" firstAttribute="centerX" secondItem="B0w-KC-3br" secondAttribute="centerX" id="AQj-A6-w8N"/>
                             <constraint firstItem="gbr-uS-Xdo" firstAttribute="leading" secondItem="B0w-KC-3br" secondAttribute="trailing" constant="25" id="FYX-tP-95g"/>
@@ -124,6 +125,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="g0b-js-xKI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
