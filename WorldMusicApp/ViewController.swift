@@ -18,6 +18,7 @@ class ViewController: UIViewController {
 
     var idArray: [String] = []
     var previewArray: [String] = []
+    var countryWithPlus: String = ""
     
     override func viewDidLoad() {
         let initialLocation = CLLocation(latitude: 36.7783, longitude: -119.4179)
@@ -65,8 +66,18 @@ class ViewController: UIViewController {
             {
             //this prints the list of album titles that correpsond to the location clicked on
                 
-            var countryWithPlus = "\(country)".stringByReplacingOccurrencesOfString(" ", withString: "+")
+             self.countryWithPlus = "\(country)".stringByReplacingOccurrencesOfString(" ", withString: "+")
             }
         }
+    }
+/*    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+    }*/
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+       // if segue.identifier == "ButtonThreeSegue" {
+            let controller = segue.destinationViewController as! songList
+            controller.country = countryWithPlus
+        
     }
 }

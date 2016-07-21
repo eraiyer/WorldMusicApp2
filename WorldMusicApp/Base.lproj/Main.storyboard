@@ -76,7 +76,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.10000000000000001" id="kWD-ci-NxU">
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.29999999999999999" id="kWD-ci-NxU">
                     <connections>
                         <action selector="addPin:" destination="BYZ-38-t0r" id="xDa-er-YYU"/>
                     </connections>

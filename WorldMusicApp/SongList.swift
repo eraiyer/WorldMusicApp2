@@ -16,6 +16,7 @@ class songList: UITableViewController{
     var previewArray: [String] = []
     var songsArray: [String] = []
     var cellIndex = 0
+    var country: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +28,7 @@ class songList: UITableViewController{
     
 func storeIdNumbers() {
     //getting the ID number of each album of the country and adding it to an array
-        let apiToContact = "https://api.spotify.com/v1/search?q=music+from+mali&type=album"
+        let apiToContact = "https://api.spotify.com/v1/search?q=music+from+\(country)&type=album"
         Alamofire.request(.GET, apiToContact).validate().responseJSON() { response in
                 switch response.result {
                     case .Success:
