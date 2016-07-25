@@ -23,7 +23,7 @@ class songList: UITableViewController{
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.navigationController?.navigationBar.tintColor = UIColor(red:0.25, green:0.77, blue:0.71, alpha:1.0);
+        self.navigationController?.navigationBar.tintColor = UIColor(red:0.72, green:0.91, blue:0.86, alpha:1.0);
         self.navigationController?.navigationBarHidden = false
         storeIdNumbers()
     }
@@ -231,8 +231,9 @@ func storeIdNumbers() {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! CustomCell
         cell.textLabel?.text = songsArray[indexPath.row]
     //    cell.textLabel?.textAlignment = .Center
-        cell.textLabel!.textColor =  UIColor(red:0.25, green:0.77, blue:0.71, alpha:1.0)
+        cell.textLabel!.textColor =  UIColor(red:0.72, green:0.91, blue:0.86, alpha:1.0)
         cell.textLabel?.font = UIFont.boldSystemFontOfSize(17.0)
+        cell.textLabel?.font = UIFont (name: "Gill Sans", size: 20)
         return cell
     }
     
@@ -249,7 +250,8 @@ func storeIdNumbers() {
         label.textColor = UIColor.whiteColor()
         label.textAlignment = .Center
         label.font = UIFont.boldSystemFontOfSize(19.0)
-        label.textColor =  UIColor(red:0.25, green:0.77, blue:0.71, alpha:1.0)
+        label.font = UIFont (name: "Gill Sans", size: 30)
+        label.textColor =  UIColor(red:0.72, green:0.91, blue:0.86, alpha:1.0)
         label.backgroundColor = UIColor.blackColor()
         return label
     }

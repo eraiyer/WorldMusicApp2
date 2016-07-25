@@ -71,7 +71,6 @@ class ViewController: UIViewController {
             if let country = placeMark.addressDictionary?["Country"] as? NSString
             {
             //this prints the list of album titles that correpsond to the location clicked on
-           // self.country = country as String
              self.countryWithPlus = "\(country)".stringByReplacingOccurrencesOfString(" ", withString: "+")
             }
         }
@@ -80,8 +79,6 @@ class ViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
        // if segue.identifier == "ButtonThreeSegue" {
             let controller = segue.destinationViewController as! songList
-            controller.country = countryWithPlus
-          //  controller.country = country
-        
+            controller.country = countryWithPlus        
     }
 }
