@@ -19,13 +19,19 @@ class ViewController: UIViewController {
     var idArray: [String] = []
     var previewArray: [String] = []
     var countryWithPlus: String = ""
+    var country: String = ""
     
     override func viewDidLoad() {
         let initialLocation = CLLocation(latitude: 36.7783, longitude: -119.4179)
         super.viewDidLoad()
+     //   self.navigationController?.navigationBarHidden = true
         // Do any additional setup after loading the view, typically from a nib.
         centerMapOnLocation(initialLocation)
-
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        super.viewDidAppear(animated)
     }
     
     let regionRadius: CLLocationDistance = 7000000
@@ -65,7 +71,7 @@ class ViewController: UIViewController {
             if let country = placeMark.addressDictionary?["Country"] as? NSString
             {
             //this prints the list of album titles that correpsond to the location clicked on
-                
+           // self.country = country as String
              self.countryWithPlus = "\(country)".stringByReplacingOccurrencesOfString(" ", withString: "+")
             }
         }
@@ -75,6 +81,7 @@ class ViewController: UIViewController {
        // if segue.identifier == "ButtonThreeSegue" {
             let controller = segue.destinationViewController as! songList
             controller.country = countryWithPlus
+          //  controller.country = country
         
     }
 }

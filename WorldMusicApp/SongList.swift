@@ -17,17 +17,21 @@ class songList: UITableViewController{
     var songsArray: [String] = []
     var cellIndex = 0
     var country: String = ""
+    var countryNoPlus: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.navigationController?.navigationBar.tintColor = UIColor(red:0.25, green:0.77, blue:0.71, alpha:1.0);
+        self.navigationController?.navigationBarHidden = false
         storeIdNumbers()
     }
     
     
 func storeIdNumbers() {
     //getting the ID number of each album of the country and adding it to an array
+
     if country == "Myanmar+(Burma)" {
         let apiToContact = "https://api.spotify.com/v1/search?q=music+from+burma&type=album"
         Alamofire.request(.GET, apiToContact).validate().responseJSON() { response in
@@ -225,7 +229,10 @@ func storeIdNumbers() {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! CustomCell
-            cell.textLabel?.text = songsArray[indexPath.row]
+        cell.textLabel?.text = songsArray[indexPath.row]
+    //    cell.textLabel?.textAlignment = .Center
+        cell.textLabel!.textColor =  UIColor(red:0.25, green:0.77, blue:0.71, alpha:1.0)
+        cell.textLabel?.font = UIFont.boldSystemFontOfSize(17.0)
         return cell
     }
     
@@ -234,6 +241,19 @@ func storeIdNumbers() {
         playSongs()
     }
     
+    
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        countryNoPlus = "\(country)".stringByReplacingOccurrencesOfString("+", withString: " ")
+        let label = UILabel(frame: CGRectMake(0, 0, tableView.frame.size.width, 30.0))
+        label.text = countryNoPlus
+        label.textColor = UIColor.whiteColor()
+        label.textAlignment = .Center
+        label.font = UIFont.boldSystemFontOfSize(19.0)
+        label.textColor =  UIColor(red:0.25, green:0.77, blue:0.71, alpha:1.0)
+        label.backgroundColor = UIColor.blackColor()
+        return label
+    }
+
     var player = AVPlayer()
     
     func playSongs() {
