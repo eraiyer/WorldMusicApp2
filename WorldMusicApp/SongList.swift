@@ -223,19 +223,23 @@ func storeIdNumbers() {
  }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-     // return previewArray.count
        return songsArray.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! CustomCell
         cell.textLabel?.text = songsArray[indexPath.row]
-    //    cell.textLabel?.textAlignment = .Center
         cell.textLabel!.textColor =  UIColor(red:0.72, green:0.91, blue:0.86, alpha:1.0)
         cell.textLabel?.font = UIFont.boldSystemFontOfSize(17.0)
         cell.textLabel?.font = UIFont (name: "Gill Sans", size: 20)
+        
+        /*let bgColorView = UIView()
+        bgColorView.backgroundColor = UIColor(red:0.72, green:0.91, blue:0.86, alpha:1.0)
+        cell.selectedBackgroundView = bgColorView*/
+        
         return cell
     }
+
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         cellIndex = indexPath.row
