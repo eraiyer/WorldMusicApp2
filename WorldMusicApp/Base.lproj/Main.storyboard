@@ -52,7 +52,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.20000000000000001" id="kWD-ci-NxU">
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.29999999999999999" id="kWD-ci-NxU">
                     <connections>
                         <action selector="addPin:" destination="BYZ-38-t0r" id="xDa-er-YYU"/>
                     </connections>
@@ -89,7 +89,7 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="kIC-nZ-F21" userLabel="Blah" colorLabel="IBBuiltInLabel-Orange">
-                        <barButtonItem key="rightBarButtonItem" title="Play All" id="fe8-1l-FeR" userLabel="Play All Button Item">
+                        <barButtonItem key="rightBarButtonItem" title="Next Song" id="fe8-1l-FeR" userLabel="Play All Button Item">
                             <connections>
                                 <action selector="playAllSongs:" destination="4BO-U5-V4e" id="8OF-iF-nYv"/>
                             </connections>
