@@ -10,7 +10,5 @@ import UIKit
 
 class CustomCell: UITableViewCell {
 
-    @IBOutlet var bgImage: UIImageView!
-
     var prevUrl = ""
 }

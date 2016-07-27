@@ -19,6 +19,7 @@ class songList: UITableViewController{
     var country: String = ""
     var countryNoPlus: String = ""
     
+    @IBOutlet weak var shuffleButtonItem: UIBarButtonItem!
     
     
     override func viewDidLoad() {
@@ -234,14 +235,12 @@ func storeIdNumbers() {
         
         cell.textLabel!.textColor =  UIColor(red:0.72, green:0.91, blue:0.86, alpha:1.0)
         cell.textLabel?.font = UIFont.boldSystemFontOfSize(17.0)
-        cell.textLabel?.font = UIFont (name: "Gill Sans", size: 20)
+        cell.textLabel?.font = UIFont (name: "Gill Sans", size: 17)
         
         cell.prevUrl = previewArray[indexPath.row]
         if cell.prevUrl == previewArray[cellIndex] {
-            //cell.bgImage.image = UIImage(named :"checkMark")
-            cell.textLabel!.textColor = UIColor.whiteColor()
+            cell.textLabel!.textColor = UIColor(red:0.69, green:0.90, blue:0.49, alpha:1.0)
         }
-        
         return cell
     }
 
@@ -259,22 +258,30 @@ func storeIdNumbers() {
         label.textColor = UIColor.whiteColor()
         label.textAlignment = .Center
         label.font = UIFont.boldSystemFontOfSize(19.0)
-        label.font = UIFont (name: "Gill Sans", size: 30)
+        label.font = UIFont (name: "Gill Sans", size: 25)
         label.textColor =  UIColor(red:0.72, green:0.91, blue:0.86, alpha:1.0)
         label.backgroundColor = UIColor.blackColor()
         return label
     }
 
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40.0
+    }
+    
     var player = AVPlayer()
     
     func playSongs() {
         self.tableView.reloadData()
         let url = previewArray[cellIndex]
-        let title = songsArray[cellIndex]
-        print(title)
         let playerItem = AVPlayerItem( URL:NSURL( string:url )! )
         player = AVPlayer(playerItem:playerItem)
         player.rate = 1.0;
         player.play()
     }
+    
+    @IBAction func clickShuffle(sender: AnyObject) {
+        cellIndex+=1
+        playSongs()
+    }
+    
 }
