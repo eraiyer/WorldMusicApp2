@@ -77,25 +77,20 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="78"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HGH-in-jp6" id="iFc-xn-ogm">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="78"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="77.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkMark" translatesAutoresizingMaskIntoConstraints="NO" id="bkh-ua-PCe">
-                                            <rect key="frame" x="539" y="20" width="53" height="37"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="53" id="VmO-op-Dwh"/>
-                                            </constraints>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ifE-d7-6X2">
+                                            <rect key="frame" x="472" y="8" width="110" height="61.5"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <constraints>
-                                        <constraint firstItem="bkh-ua-PCe" firstAttribute="centerY" secondItem="iFc-xn-ogm" secondAttribute="centerY" id="E1C-cq-i5a"/>
-                                        <constraint firstItem="bkh-ua-PCe" firstAttribute="top" secondItem="iFc-xn-ogm" secondAttribute="topMargin" constant="12" id="EoK-0I-5Ci"/>
-                                        <constraint firstItem="bkh-ua-PCe" firstAttribute="trailing" secondItem="iFc-xn-ogm" secondAttribute="trailingMargin" id="yUk-0f-GJ2"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" red="0.23436752208843009" green="0.61260221878922827" blue="0.70564903846153848" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="bgImage" destination="ifE-d7-6X2" id="s5x-2Y-FIE"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -132,7 +127,4 @@
             <point key="canvasLocation" x="245" y="317"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="checkMark" width="346" height="242"/>
-    </resources>
 </document>

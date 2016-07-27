@@ -19,6 +19,8 @@ class songList: UITableViewController{
     var country: String = ""
     var countryNoPlus: String = ""
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.delegate = self
@@ -229,13 +231,16 @@ func storeIdNumbers() {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! CustomCell
         cell.textLabel?.text = songsArray[indexPath.row]
+        
         cell.textLabel!.textColor =  UIColor(red:0.72, green:0.91, blue:0.86, alpha:1.0)
         cell.textLabel?.font = UIFont.boldSystemFontOfSize(17.0)
         cell.textLabel?.font = UIFont (name: "Gill Sans", size: 20)
         
-        /*let bgColorView = UIView()
-        bgColorView.backgroundColor = UIColor(red:0.72, green:0.91, blue:0.86, alpha:1.0)
-        cell.selectedBackgroundView = bgColorView*/
+        cell.prevUrl = previewArray[indexPath.row]
+        if cell.prevUrl == previewArray[cellIndex] {
+            //cell.bgImage.image = UIImage(named :"checkMark")
+            cell.textLabel!.textColor = UIColor.whiteColor()
+        }
         
         return cell
     }
@@ -265,6 +270,8 @@ func storeIdNumbers() {
     func playSongs() {
         self.tableView.reloadData()
         let url = previewArray[cellIndex]
+        let title = songsArray[cellIndex]
+        print(title)
         let playerItem = AVPlayerItem( URL:NSURL( string:url )! )
         player = AVPlayer(playerItem:playerItem)
         player.rate = 1.0;
