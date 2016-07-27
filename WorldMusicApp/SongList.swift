@@ -19,7 +19,6 @@ class songList: UITableViewController{
     var country: String = ""
     var countryNoPlus: String = ""
     
-    @IBOutlet weak var shuffleButtonItem: UIBarButtonItem!
     
     
     override func viewDidLoad() {
@@ -60,6 +59,33 @@ func storeIdNumbers() {
                 print(error)
             }
         }
+    }
+    else if country == "United+Kingdom" {
+        let apiToContact = "https://api.spotify.com/v1/search?q=british&type=album"
+        Alamofire.request(.GET, apiToContact).validate().responseJSON() { response in
+            switch response.result {
+            case .Success:
+                if let value = response.result.value {
+                    let json = JSON(value)
+                    var counter = 0
+                    // print(json["albums"])
+                    for(_,_) in json["albums"]{
+                        if let albumID = json["albums"]["items"][counter]["id"].string {
+                            var albumLinkWithID = "https://api.spotify.com/v1/albums/\(albumID)/tracks"
+                            self.idArray.append(albumLinkWithID)
+                            counter+=1
+                        }
+                    }
+                    self.tableView.reloadData()
+                    self.storePreviewUrl()
+                    self.storeSongs()
+                    break
+                }
+            case .Failure(let error):
+                print(error)
+            }
+        }
+        
     }
    else if country == "United+States" {
         let apiToContact = "https://api.spotify.com/v1/search?q=pop+music&type=album"
@@ -279,9 +305,11 @@ func storeIdNumbers() {
         player.play()
     }
     
-    @IBAction func clickShuffle(sender: AnyObject) {
-        cellIndex+=1
-        playSongs()
-    }
     
+    @IBAction func playAllSongs(sender: AnyObject) {
+        cellIndex+=1
+        if cellIndex < previewArray.count{
+            playSongs()
+        }
+    }
 }

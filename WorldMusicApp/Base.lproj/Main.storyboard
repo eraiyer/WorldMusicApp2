@@ -89,15 +89,14 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="kIC-nZ-F21" userLabel="Blah" colorLabel="IBBuiltInLabel-Orange">
-                        <barButtonItem key="rightBarButtonItem" title="Play All" id="fe8-1l-FeR">
+                        <barButtonItem key="rightBarButtonItem" title="Play All" id="fe8-1l-FeR" userLabel="Play All Button Item">
                             <connections>
-                                <action selector="clickShuffle:" destination="4BO-U5-V4e" id="eWK-ZD-Sa6"/>
+                                <action selector="playAllSongs:" destination="4BO-U5-V4e" id="8OF-iF-nYv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="shuffleButtonItem" destination="fe8-1l-FeR" id="hbo-cN-1tD"/>
                         <outlet property="tableView" destination="EN1-ah-W8w" id="bdu-sY-m5H"/>
                     </connections>
                 </tableViewController>
