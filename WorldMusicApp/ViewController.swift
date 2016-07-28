@@ -77,8 +77,13 @@ class ViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-       // if segue.identifier == "ButtonThreeSegue" {
+        if segue.identifier == "toSongList" {
             let controller = segue.destinationViewController as! songList
-            controller.country = countryWithPlus        
+            controller.country = countryWithPlus
+            
+        }
+        if segue.identifier == "toFavorites" {
+            
+        }
     }
 }

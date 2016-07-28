@@ -18,8 +18,7 @@ class songList: UITableViewController{
     var cellIndex = 0
     var country: String = ""
     var countryNoPlus: String = ""
-    
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -251,6 +250,7 @@ func storeIdNumbers() {
     }
 }
    func storeSongs(){
+        self.songsArray = []
         var idCounter =  0
         while idCounter < self.idArray.count {
             let apiToContact = self.idArray[idCounter]
@@ -323,20 +323,42 @@ func storeIdNumbers() {
     
     var player = AVPlayer()
     
-    func playSongs() {
+   func playSongs() {
         self.tableView.reloadData()
         let url = previewArray[cellIndex]
         let playerItem = AVPlayerItem( URL:NSURL( string:url )! )
         player = AVPlayer(playerItem:playerItem)
-        player.rate = 1.0;
+        player.rate = 1.0
         player.play()
     }
     
+    /*func playSongWithUrl(url: NSURL) {
+        let item = AVPlayerItem(URL: url)
+        
+        //NSNotificationCenter.defaultCenter().addObserver(self, selector: "playerDidFinishPlaying:", name: AVPlayerItemDidPlayToEndTimeNotification, object: item)
+        //AVPlayerItemFailedToPlayToEndTimeNotification
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(songList.playerDidFinishPlaying), name: AVPlayerItemFailedToPlayToEndTimeNotification, object: item)
+
+        let player = AVPlayer(playerItem: item)
+        player.rate = 1.0
+        player.play()
+    }
+    
+    func playerDidFinishPlaying() {
+        cellIndex+=1
+        if cellIndex < previewArray.count {
+            playSongs()
+        }
+        let previewIndex = NSURL(string: previewArray[cellIndex+1])
+        playSongWithUrl(previewIndex!)
+    }
     
     @IBAction func playAllSongs(sender: AnyObject) {
         cellIndex+=1
         if cellIndex < previewArray.count{
             playSongs()
-        }
-    }
+       }
+        let previewIndex = NSURL(string: previewArray[cellIndex])
+        playSongWithUrl(previewIndex!)
+     }*/
 }

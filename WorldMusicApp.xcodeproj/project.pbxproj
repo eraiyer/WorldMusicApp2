@@ -13,6 +13,7 @@
 		EF7F66A41D33F949004CC839 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF7F66A21D33F949004CC839 /* Main.storyboard */; };
 		EF7F66A61D33F949004CC839 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF7F66A51D33F949004CC839 /* Assets.xcassets */; };
 		EF7F66A91D33F949004CC839 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF7F66A71D33F949004CC839 /* LaunchScreen.storyboard */; };
+		EFD2B08D1D4AC9F800F428F9 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD2B08C1D4AC9F800F428F9 /* FavoritesTableViewController.swift */; };
 		EFDAFE201D3D869E00ED3DAE /* SongList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDAFE1F1D3D869E00ED3DAE /* SongList.swift */; };
 		EFDAFE221D3EDC1300ED3DAE /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDAFE211D3EDC1300ED3DAE /* CustomCell.swift */; };
 /* End PBXBuildFile section */
@@ -27,6 +28,7 @@
 		EF7F66A51D33F949004CC839 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF7F66A81D33F949004CC839 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EF7F66AA1D33F949004CC839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFD2B08C1D4AC9F800F428F9 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
 		EFDAFE1F1D3D869E00ED3DAE /* SongList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongList.swift; sourceTree = "<group>"; };
 		EFDAFE211D3EDC1300ED3DAE /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		F21E6045D3E831F793F5361C /* Pods-WorldMusicApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorldMusicApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WorldMusicApp/Pods-WorldMusicApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				EF7F66AA1D33F949004CC839 /* Info.plist */,
 				EFDAFE1F1D3D869E00ED3DAE /* SongList.swift */,
 				EFDAFE211D3EDC1300ED3DAE /* CustomCell.swift */,
+				EFD2B08C1D4AC9F800F428F9 /* FavoritesTableViewController.swift */,
 			);
 			path = WorldMusicApp;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 				EFDAFE201D3D869E00ED3DAE /* SongList.swift in Sources */,
 				EF7F66A11D33F948004CC839 /* ViewController.swift in Sources */,
 				EFDAFE221D3EDC1300ED3DAE /* CustomCell.swift in Sources */,
+				EFD2B08D1D4AC9F800F428F9 /* FavoritesTableViewController.swift in Sources */,
 				EF7F669F1D33F948004CC839 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
