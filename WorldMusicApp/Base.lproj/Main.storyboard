@@ -17,18 +17,18 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Jcd-ZF-nbj">
-                                <rect key="frame" x="11" y="38" width="578" height="524"/>
+                                <rect key="frame" x="11" y="38" width="392" height="660"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="kWD-ci-NxU" appends="YES" id="Zxr-Mi-Q4b"/>
                                 </connections>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B0w-KC-3br">
-                                <rect key="frame" x="462" y="564" width="94" height="36"/>
+                                <rect key="frame" x="276" y="700" width="94" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="94" id="YBo-UU-Yoa"/>
                                 </constraints>
@@ -41,7 +41,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xUI-mK-ToQ">
-                                <rect key="frame" x="41" y="567" width="96" height="30"/>
+                                <rect key="frame" x="41" y="703" width="96" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="96" id="3Gc-NF-YFa"/>
                                 </constraints>
@@ -71,6 +71,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5rM-Ob-sk6"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="mapView" destination="Jcd-ZF-nbj" id="U0t-Fi-9J1"/>
                     </connections>
@@ -93,34 +94,44 @@
                         <viewControllerLayoutGuide type="bottom" id="uea-3N-fAS"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="M3n-0e-Vrs">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="78" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vra-X0-52R">
-                                <rect key="frame" x="0.0" y="47" width="600" height="553"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="78" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vra-X0-52R">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.66666666669999997" green="0.89411764709999997" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="favCell" rowHeight="78" id="pac-D5-kUl">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="78"/>
+                                        <rect key="frame" x="0.0" y="92" width="414" height="78"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pac-D5-kUl" id="dPM-30-ilg">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="77.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="78"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="tintColor" red="0.66666666669999997" green="0.89411764709999997" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" red="0.66666666669999997" green="0.89411764709999997" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="z1S-Hv-wAe" id="nsS-Lo-fD4"/>
+                                    <outlet property="delegate" destination="z1S-Hv-wAe" id="DKC-cs-ub1"/>
                                 </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="vra-X0-52R" secondAttribute="bottom" id="Dd4-3A-EaN"/>
+                            <constraint firstItem="vra-X0-52R" firstAttribute="leading" secondItem="M3n-0e-Vrs" secondAttribute="leading" id="ZsY-QT-qA1"/>
+                            <constraint firstAttribute="trailing" secondItem="vra-X0-52R" secondAttribute="trailing" id="kl4-ef-1o7"/>
+                            <constraint firstItem="vra-X0-52R" firstAttribute="top" secondItem="M3n-0e-Vrs" secondAttribute="top" id="m7U-PL-A5A"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GMu-PQ-opy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -131,16 +142,16 @@
             <objects>
                 <tableViewController id="4BO-U5-V4e" customClass="songList" customModule="WorldMusicApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="78" sectionHeaderHeight="28" sectionFooterHeight="28" id="EN1-ah-W8w">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" red="0.6588235294117647" green="0.89411764705882357" blue="0.83137254901960789" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="78" id="HGH-in-jp6" customClass="CustomCell" customModule="WorldMusicApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="78"/>
+                                <rect key="frame" x="0.0" y="92" width="414" height="78"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HGH-in-jp6" id="iFc-xn-ogm">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="77.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="78"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </tableViewCellContentView>
@@ -154,10 +165,18 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="kIC-nZ-F21" userLabel="Blah" colorLabel="IBBuiltInLabel-Orange"/>
+                    <navigationItem key="navigationItem" id="kIC-nZ-F21" userLabel="Blah" colorLabel="IBBuiltInLabel-Orange">
+                        <barButtonItem key="rightBarButtonItem" title="Add to Favorites" id="k1m-q4-cRD" userLabel="FavButton">
+                            <connections>
+                                <action selector="addToFavs:" destination="4BO-U5-V4e" id="HPO-yA-uCd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="tableView" destination="EN1-ah-W8w" id="bdu-sY-m5H"/>
+                        <segue destination="z1S-Hv-wAe" kind="show" identifier="toFavorites" id="TC4-kQ-kmS"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5uD-VD-Ja5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -185,4 +204,7 @@
             <point key="canvasLocation" x="245" y="317"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="TC4-kQ-kmS"/>
+    </inferredMetricsTieBreakers>
 </document>

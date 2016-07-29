@@ -9,7 +9,11 @@
 import UIKit
 
 class FavoritesViewController: UIViewController {
-
+    var favouriteSongs: [String] = songsHelper.favoriteSongs
+    var favouriteUrls: [String] = []
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.tintColor = UIColor(red:0.72, green:0.91, blue:0.86, alpha:1.0);
@@ -20,6 +24,7 @@ class FavoritesViewController: UIViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        print(favouriteSongs)
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,6 +32,10 @@ class FavoritesViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+
+    
+
+    
     // MARK: - Table view data source
 
      /*
@@ -78,13 +87,26 @@ class FavoritesViewController: UIViewController {
 
 extension FavoritesViewController: UITableViewDataSource {
     
+
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return 10
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("favCell")
         return cell!
     }
-    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let label = UILabel(frame: CGRectMake(0, 0, tableView.frame.size.width, 30.0))
+        label.text = "Favorites"
+        label.textAlignment = .Center
+        label.font = UIFont.boldSystemFontOfSize(19.0)
+        label.font = UIFont (name: "Gill Sans", size: 25)
+        label.textColor =  UIColor(red:0.72, green:0.91, blue:0.86, alpha:1.0)
+        label.backgroundColor = UIColor.blackColor()
+        return label
+    }
+     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40.0
+    }
 }

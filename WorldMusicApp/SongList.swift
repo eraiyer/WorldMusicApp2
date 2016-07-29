@@ -15,10 +15,11 @@ class songList: UITableViewController{
     var idArray: [String] = []
     var previewArray: [String] = []
     var songsArray: [String] = []
+    var favSongs: [String] = ["hello", "hola"]
     var cellIndex = 0
     var country: String = ""
     var countryNoPlus: String = ""
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -308,7 +309,6 @@ func storeIdNumbers() {
         countryNoPlus = "\(country)".stringByReplacingOccurrencesOfString("+", withString: " ")
         let label = UILabel(frame: CGRectMake(0, 0, tableView.frame.size.width, 30.0))
         label.text = countryNoPlus
-        label.textColor = UIColor.whiteColor()
         label.textAlignment = .Center
         label.font = UIFont.boldSystemFontOfSize(19.0)
         label.font = UIFont (name: "Gill Sans", size: 25)
@@ -331,6 +331,20 @@ func storeIdNumbers() {
         player.rate = 1.0
         player.play()
     }
+    
+    @IBAction func addToFavs(sender: AnyObject) {
+        favSongs.append(songsArray[cellIndex])
+        songsHelper.favoriteSongs = favSongs
+    }
+
+    
+    /*override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "toFavorites" {
+            let controller = segue.destinationViewController as! FavoritesViewController
+            controller.favoriteSongs = favSongs
+            
+        }
+    }*/
     
     /*func playSongWithUrl(url: NSURL) {
         let item = AVPlayerItem(URL: url)
